@@ -1,0 +1,8 @@
+en:
+  site_settings:
+    threatstream_enabled: "Threatstream SSO is enabled"
+    reports_enabled: "Reports SSO is enabled"
+    threatstream_sso_url: 'Threatstream SSO URL'
+    reports_sso_url: 'Reports SSO URL'
+
+

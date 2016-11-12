@@ -1,0 +1,16 @@
+login:
+  threatstream_enabled:
+    default: false
+    client: true
+  threatstream_button_title:
+    default: 'Threatstream'
+    client: true
+  threatstream_sso_url: ''
+
+  reports_enabled:
+    default: false
+    client: true
+  reports_button_title:
+    default: 'Reports'
+    client: true
+  reports_sso_url: ''
