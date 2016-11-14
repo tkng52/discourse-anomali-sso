@@ -22,8 +22,8 @@ class ::AnomaliController < ::ApplicationController
     end
 
     base = SiteSetting.threatstream_sso_url
-    "#{base}#{base.include?('?') ? '&' : '?'}#{sso.payload}"
-    redirect_to sso.to_url
+    redirect_to "#{base}#{base.include?('?') ? '&' : '?'}#{sso.payload}"
+    # redirect_to sso.to_url
   end
 
   def sso_reports
