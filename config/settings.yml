@@ -14,12 +14,3 @@ login:
     default: 'Reports'
     client: true
   reports_sso_url: ''
-
-
-  enterprise_enabled:
-    default: false
-    client: true
-  enterprise_button_title:
-    default: 'Reports'
-    client: true
-  enterprise_sso_url: ''

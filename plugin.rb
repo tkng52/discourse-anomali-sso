@@ -7,8 +7,6 @@ require_dependency 'auth/oauth2_authenticator.rb'
 
 enabled_site_setting :threatstream_enabled
 enabled_site_setting :reports_enabled
-enabled_site_setting :enterprise_enabled
-
 
 after_initialize do
   load File.expand_path("../controllers/anomali_controller.rb", __FILE__)
@@ -92,37 +90,5 @@ auth_provider title_setting: "reports_button_title",
 register_css <<CSS
   button.btn-social.reports_basic {
     background-color: #F79420;
-  }
-CSS
-
-
-############### Another Product ###############
-
-class EnterpriseBasicAuthenticator < ::Auth::OAuth2Authenticator
-  def register_middleware(omniauth)
-    omniauth.provider :oauth2_basic,
-                      name: 'enterprise_basic',
-                      setup: lambda {|env|
-                        opts = env['omniauth.strategy'].options
-                      }
-  end
-
-  def after_authenticate(auth)
-  end
-
-end
-
-auth_provider title_setting: "enterprise_button_title",
-              enabled_setting: "enterprise_enabled",
-              authenticator: OAuth2BasicAuthenticator.new('enterprise_basic'),
-              message: "OAuth2",
-              # custom_url: "http://ubuntuserver14041w-tkdiscourse-dywim4vu.srv.ravcloud.com/anomali/sso_reports?return_path=%2F",
-              # custom_url: "https://devdiscourse01.threatstream.com/anomali/sso_reports?return_path=%2F",
-              # custom_url: "http://localhost:4000/anomali/sso_reports?return_path=%2F",
-              full_screen_login: true
-
-register_css <<CSS
-  button.btn-social.enterprise_basic {
-    background-color: #D4DF43;
   }
 CSS
