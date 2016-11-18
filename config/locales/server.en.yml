@@ -2,7 +2,10 @@ en:
   site_settings:
     threatstream_enabled: "Threatstream SSO is enabled"
     reports_enabled: "Reports SSO is enabled"
+    anomali_enabled: "Anomali SSO is enabled"
     threatstream_sso_url: 'Threatstream SSO URL'
     reports_sso_url: 'Reports SSO URL'
+    anomali_sso_url: 'Anomali SSO URL'
+
 
 

@@ -14,3 +14,12 @@ login:
     default: 'Reports'
     client: true
   reports_sso_url: ''
+
+  anomali_enabled:
+    default: false
+    client: true
+  anomali_button_title:
+    default: 'Anomali'
+    client: true
+  anomali_sso_url: ''
+
