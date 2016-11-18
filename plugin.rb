@@ -49,9 +49,9 @@ auth_provider title_setting: "threatstream_button_title",
               enabled_setting: "threatstream_enabled",
               authenticator: OAuth2BasicAuthenticator.new('threatstream_basic'),
               message: "OAuth2",
-              custom_url: "http://ubuntuserver14041w-tkdiscourse-dywim4vu.srv.ravcloud.com/anomali/sso_threatstream?return_path=%2F",
+              # custom_url: "http://ubuntuserver14041w-tkdiscourse-dywim4vu.srv.ravcloud.com/anomali/sso_threatstream?return_path=%2F",
               # custom_url: "https://devdiscourse01.threatstream.com/anomali/sso_threatstream?return_path=%2F",
-              # custom_url: "http://localhost:4000/anomali/sso_threatstream?return_path=%2F",
+              custom_url: "http://localhost:4000/anomali/sso_threatstream?return_path=%2F",
               full_screen_login: true
 
 register_css <<CSS
@@ -82,9 +82,9 @@ auth_provider title_setting: "reports_button_title",
               enabled_setting: "reports_enabled",
               authenticator: OAuth2BasicAuthenticator.new('reports_basic'),
               message: "OAuth2",
-              custom_url: "http://ubuntuserver14041w-tkdiscourse-dywim4vu.srv.ravcloud.com/anomali/sso_reports?return_path=%2F",
+              # custom_url: "http://ubuntuserver14041w-tkdiscourse-dywim4vu.srv.ravcloud.com/anomali/sso_reports?return_path=%2F",
               # custom_url: "https://devdiscourse01.threatstream.com/anomali/sso_reports?return_path=%2F",
-              # custom_url: "http://localhost:4000/anomali/sso_reports?return_path=%2F",
+              custom_url: "http://localhost:4000/anomali/sso_reports?return_path=%2F",
               full_screen_login: true
 
 register_css <<CSS
