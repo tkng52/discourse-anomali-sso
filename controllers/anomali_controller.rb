@@ -38,7 +38,7 @@ class ::AnomaliController < ::ApplicationController
     session.delete(:destination_url)
     cookies.delete(:destination_url)
 
-    sso = AnomaliSingleSignOn.generate_sso(return_path)
+    sso = DiscourseSingleSignOn.generate_sso(return_path)
     if SiteSetting.verbose_sso_logging
       Rails.logger.warn("Verbose SSO log: Started SSO process\n\n#{sso.diagnostics}")
     end
