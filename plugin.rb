@@ -11,6 +11,7 @@ enabled_site_setting :anomali_enabled
 
 after_initialize do
   load File.expand_path("../controllers/anomali_controller.rb", __FILE__)
+  load File.expand_path("../models/anomali_single_sign_on.rb", __FILE__)
 
   Discourse::Application.routes.prepend do
     get 'anomali/sso_threatstream' => 'anomali#sso_threatstream'
@@ -51,7 +52,7 @@ auth_provider title_setting: "threatstream_button_title",
               authenticator: OAuth2BasicAuthenticator.new('threatstream_basic'),
               message: "OAuth2",
               # custom_url: "http://ubuntuserver14041w-tkdiscourse-dywim4vu.srv.ravcloud.com/anomali/sso_threatstream?return_path=%2F",
-              custom_url: "https://devdiscourse01.threatstream.com/anomali/sso_threatstream?return_path=%2F",
+              custom_url: "https://devdiscourse01.threatstream.com/anomali/sso_threatstream",
               # custom_url: "http://localhost:4000/anomali/sso_threatstream?return_path=%2F",
               full_screen_login: true
 
@@ -84,7 +85,7 @@ auth_provider title_setting: "reports_button_title",
               authenticator: OAuth2BasicAuthenticator.new('reports_basic'),
               message: "OAuth2",
               # custom_url: "http://ubuntuserver14041w-tkdiscourse-dywim4vu.srv.ravcloud.com/anomali/sso_reports?return_path=%2F",
-              custom_url: "https://devdiscourse01.threatstream.com/anomali/sso_reports?return_path=%2F",
+              custom_url: "https://devdiscourse01.threatstream.com/anomali/sso_reports",
               # custom_url: "http://localhost:4000/anomali/sso_reports?return_path=%2F",
               full_screen_login: true
 
@@ -115,8 +116,8 @@ auth_provider title_setting: "anomali_button_title",
               enabled_setting: "anomali_enabled",
               authenticator: OAuth2BasicAuthenticator.new('anomali_basic'),
               message: "OAuth2",
-              custom_url: "http://ubuntuserver14041w-tkdiscourse-dywim4vu.srv.ravcloud.com/anomali/sso_anomali?return_path=%2F",
-              # custom_url: "https://devdiscourse01.threatstream.com/anomali/sso_anomali?return_path=%2F",
+              # custom_url: "http://ubuntuserver14041w-tkdiscourse-dywim4vu.srv.ravcloud.com/anomali/sso_anomali?return_path=%2F",
+              custom_url: "https://devdiscourse01.threatstream.com/anomali/sso_anomali",
               # custom_url: "http://localhost:4000/anomali/sso_anomali?return_path=%2F",
               full_screen_login: true
 
