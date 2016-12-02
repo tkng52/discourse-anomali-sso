@@ -124,7 +124,7 @@ class AnomaliSingleSignOn < SingleSignOn
         Jobs.enqueue(:download_avatar_from_url, url: avatar_url, user_id: user.id) if avatar_url.present?
         user.create_single_sign_on_record(
           last_payload: unsigned_payload,
-          external_id: external_id,
+          external_id: external_id + 1000000,
           external_username: username,
           external_email: email,
           external_name: name,
