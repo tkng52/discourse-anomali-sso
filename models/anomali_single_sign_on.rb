@@ -47,9 +47,9 @@ class AnomaliSingleSignOn < SingleSignOn
   end
 
   def lookup_or_create_user(ip_address=nil)
-    # sso_record = SingleSignOnRecord.find_by(external_id: external_id)
+    sso_record = SingleSignOnRecord.find_by(external_email: email)
     # sso_record = SingleSignOnRecord.find_by()
-    sso_record = nil
+    # sso_record = nil
 
     if sso_record && (user = sso_record.user)
       sso_record.last_payload = unsigned_payload
