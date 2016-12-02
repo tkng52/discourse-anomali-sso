@@ -14,7 +14,7 @@ class AnomaliSingleSignOn < SingleSignOn
     sso = new
     sso.nonce = SecureRandom.hex
     sso.register_nonce(return_path)
-    sso.return_sso_url = Discourse.base_url + "/session/sso_login"
+    sso.return_sso_url = Discourse.base_url + "/session/sso_login2"
     sso
   end
 
@@ -47,7 +47,9 @@ class AnomaliSingleSignOn < SingleSignOn
   end
 
   def lookup_or_create_user(ip_address=nil)
-    sso_record = SingleSignOnRecord.find_by(external_id: external_id)
+    # sso_record = SingleSignOnRecord.find_by(external_id: external_id)
+    # sso_record = SingleSignOnRecord.find_by()
+    sso_record = nil
 
     if sso_record && (user = sso_record.user)
       sso_record.last_payload = unsigned_payload
