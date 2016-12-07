@@ -176,7 +176,7 @@ class ::AnomaliController < ::ApplicationController
     sso.expire_nonce!
 
     begin
-      if user = sso.lookup_or_create_user(request.remote_ip, "TS")
+      if user = sso.lookup_or_create_user(request.remote_ip, "ThreatStream")
 
         if SiteSetting.must_approve_users? && !user.approved?
           if SiteSetting.sso_not_approved_url.present?
@@ -258,7 +258,7 @@ class ::AnomaliController < ::ApplicationController
     sso.expire_nonce!
 
     begin
-      if user = sso.lookup_or_create_user(request.remote_ip, "R")
+      if user = sso.lookup_or_create_user(request.remote_ip, "Reports")
 
         if SiteSetting.must_approve_users? && !user.approved?
           if SiteSetting.sso_not_approved_url.present?

@@ -90,6 +90,14 @@ class AnomaliSingleSignOn < SingleSignOn
       user.user_profile.save!
     end
 
+    # automatically add user to group based on the SSO platform
+    group = Group.find_by_name(product_name)
+    if !group.users.include?(user)
+      group.add(user)
+    else
+      return render_json_error I18n.t('groups.errors.member_already_exist', username: user.username)
+    end
+
     unless admin.nil? && moderator.nil?
       Group.refresh_automatic_groups!(:admins, :moderators, :staff)
     end
@@ -130,6 +138,19 @@ class AnomaliSingleSignOn < SingleSignOn
           external_name: name,
           external_avatar_url: avatar_url
         )
+
+        # if product_name == "TS"
+        #   id = 43
+        # elsif product_name == "R"
+        #   id = 44
+        # end
+        # group = Group.find(id)
+        # if !group.users.include?(user)
+        #   group.add(user)
+        # else
+        #   return render_json_error I18n.t('groups.errors.member_already_exist', username: user.username)
+        # end
+
       end
     end
 
