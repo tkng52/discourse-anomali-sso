@@ -46,7 +46,7 @@ class AnomaliSingleSignOn < SingleSignOn
     "SSO_NONCE_#{nonce}"
   end
 
-  def lookup_or_create_user(ip_address=nil)
+  def lookup_or_create_user(ip_address=nil, product_name)
     sso_record = SingleSignOnRecord.find_by(external_email: email)
     # sso_record = SingleSignOnRecord.find_by()
     # sso_record = nil
@@ -54,7 +54,7 @@ class AnomaliSingleSignOn < SingleSignOn
     if sso_record && (user = sso_record.user)
       sso_record.last_payload = unsigned_payload
     else
-      user = match_email_or_create_user(ip_address)
+      user = match_email_or_create_user(ip_address, product_name)
       sso_record = user.single_sign_on_record
     end
 
@@ -101,7 +101,7 @@ class AnomaliSingleSignOn < SingleSignOn
 
   private
 
-  def match_email_or_create_user(ip_address)
+  def match_email_or_create_user(ip_address, product_name)
     unless user = User.find_by_email(email)
       try_name = name.presence
       try_username = username.presence
@@ -124,7 +124,7 @@ class AnomaliSingleSignOn < SingleSignOn
         Jobs.enqueue(:download_avatar_from_url, url: avatar_url, user_id: user.id) if avatar_url.present?
         user.create_single_sign_on_record(
           last_payload: unsigned_payload,
-          external_id: external_id << "1000000",
+          external_id: external_id << product_name,
           external_username: username,
           external_email: email,
           external_name: name,

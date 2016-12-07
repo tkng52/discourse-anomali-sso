@@ -18,6 +18,7 @@ after_initialize do
     get 'anomali/sso_reports' => 'anomali#sso_reports'
     get 'anomali/sso_anomali' => 'anomali#sso_anomali'
     get 'anomali/sso_login' => 'anomali#sso_login'
+    get 'anomali/sso_login1' => 'anomali#sso_login1'
     get 'anomali/sso_login2' => 'anomali#sso_login2'
 
   end
