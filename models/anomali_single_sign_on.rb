@@ -94,8 +94,8 @@ class AnomaliSingleSignOn < SingleSignOn
     group = Group.find_by_name(product_name)
     if !group.users.include?(user)
       group.add(user)
-    else
-      return render_json_error I18n.t('groups.errors.member_already_exist', username: user.username)
+    # else
+      # return render_json_error I18n.t('groups.errors.member_already_exist', username: user.username)
     end
 
     unless admin.nil? && moderator.nil?
